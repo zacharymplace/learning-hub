@@ -11,6 +11,7 @@
 *.csv
 *.egg-info/
 *.log
+*.nbconvert.ipynb
 *.py[cod]
 *.pyc
 *.swp
