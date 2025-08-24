@@ -1,4 +1,4 @@
-# learning-hub
+# Learning hub [![lint](https://github.com/zacharymplace/learning-hub/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/zacharymplace/learning-hub/actions/workflows/lint.yml)
 
 **Purpose**: Notes, exercises, and experiments for continuous learning.
 
