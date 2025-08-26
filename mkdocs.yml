@@ -64,6 +64,7 @@ nav:
       - Mermaid Gallery: how-to/mermaid-gallery.md
       - Pandas I/O Cheats: how-to/pandas-io.md
       - Forecast rollups (monthly → quarterly): how-to/forecast-rollups.md
+      - Lease CSV cleanup (ASC 842 prep): how-to/lease-csv-cleanup.md
   - Snippets:
       - SQL: snippets/sql.md
       - Python: snippets/python.md
