@@ -51,83 +51,6 @@ GROUP BY 1,2,3;
 
 **Examples:** see `forecast_monthly.csv` in Examples
 
-## SQL recipes
-
-### Postgres
-```sql
--- Calendar quarter totals
-SELECT
-  entity,
-  dept,
-  date_trunc('quarter', month)::date AS quarter_start,
-  SUM(amount) AS amount_q
-FROM fact_monthly
-GROUP BY 1,2,3;
-
--- QTD / YTD running totals
-SELECT
-  entity, dept, month::date,
-  SUM(amount) OVER (
-    PARTITION BY entity, dept, date_trunc('quarter', month)
-    ORDER BY month
-    ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
-  ) AS amount_qtd,
-  SUM(amount) OVER (
-    PARTITION BY entity, dept, date_trunc('year', month)
-    ORDER BY month
-    ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
-  ) AS amount_ytd
-FROM fact_monthly;
-
--- Fiscal quarters starting July (shift 6 months)
-SELECT
-  entity, dept,
-  (date_trunc('quarter', month - INTERVAL '6 months') + INTERVAL '6 months')::date AS fiscal_q_start,
-  SUM(amount) AS amount_fq
-FROM fact_monthly
-GROUP BY 1,2,3;
-```
-
-## SQL Server
-
-```sql
--- Calendar quarter totals
-SELECT
-  entity,
-  dept,
-  DATEADD(QUARTER, DATEDIFF(QUARTER, 0, [month]), 0) AS quarter_start,
-  SUM(amount) AS amount_q
-FROM fact_monthly
-GROUP BY entity, dept, DATEADD(QUARTER, DATEDIFF(QUARTER, 0, [month]), 0);
-
--- QTD / YTD running totals
-SELECT
-  entity, dept, [month],
-  SUM(amount) OVER (
-    PARTITION BY entity, dept, YEAR([month]), DATEPART(QUARTER, [month])
-    ORDER BY [month]
-    ROWS UNBOUNDED PRECEDING
-  ) AS amount_qtd,
-  SUM(amount) OVER (
-    PARTITION BY entity, dept, YEAR([month])
-    ORDER BY [month]
-    ROWS UNBOUNDED PRECEDING
-  ) AS amount_ytd
-FROM fact_monthly;
-
--- Fiscal quarters starting July (shift 6 months)
-SELECT
-  entity, dept,
-  DATEADD(MONTH, 6,
-    DATEADD(QUARTER, DATEDIFF(QUARTER, 0, DATEADD(MONTH, -6, [month])), 0)
-  ) AS fiscal_q_start,
-  SUM(amount) AS amount_fq
-FROM fact_monthly
-GROUP BY entity, dept,
-  DATEADD(MONTH, 6,
-    DATEADD(QUARTER, DATEDIFF(QUARTER, 0, DATEADD(MONTH, -6, [month])), 0)
-  );
-```
 
 ## SQL recipes
 
@@ -159,16 +82,15 @@ FROM fact_monthly;
 
 -- Fiscal quarters starting July (shift 6 months)
 SELECT
-  entity, dept,
+  entity,
+  dept,
   (date_trunc('quarter', month - INTERVAL '6 months') + INTERVAL '6 months')::date AS fiscal_q_start,
   SUM(amount) AS amount_fq
 FROM fact_monthly
 GROUP BY 1,2,3;
-
 ```
 
-## SQL Server
-
+### SQL Server
 ```sql
 -- Calendar quarter totals
 SELECT
@@ -181,7 +103,9 @@ GROUP BY entity, dept, DATEADD(QUARTER, DATEDIFF(QUARTER, 0, [month]), 0);
 
 -- QTD / YTD running totals
 SELECT
-  entity, dept, [month],
+  entity,
+  dept,
+  [month],
   SUM(amount) OVER (
     PARTITION BY entity, dept, YEAR([month]), DATEPART(QUARTER, [month])
     ORDER BY [month]
@@ -196,7 +120,8 @@ FROM fact_monthly;
 
 -- Fiscal quarters starting July (shift 6 months)
 SELECT
-  entity, dept,
+  entity,
+  dept,
   DATEADD(MONTH, 6,
     DATEADD(QUARTER, DATEDIFF(QUARTER, 0, DATEADD(MONTH, -6, [month])), 0)
   ) AS fiscal_q_start,
@@ -207,5 +132,4 @@ GROUP BY
   DATEADD(MONTH, 6,
     DATEADD(QUARTER, DATEDIFF(QUARTER, 0, DATEADD(MONTH, -6, [month])), 0)
   );
-
 ```
