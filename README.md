@@ -1,5 +1,8 @@
 # Learning hub 
 
+[![docs](https://github.com/zacharymplace/learning-hub/actions/workflows/docs.yml/badge.svg)](../../actions/workflows/docs.yml)
+[![generate examples](https://github.com/zacharymplace/learning-hub/actions/workflows/generate-examples.yml/badge.svg)](../../actions/workflows/generate-examples.yml)
+[![Pages](https://img.shields.io/badge/website-live-4c1)](https://zacharymplace.github.io/learning-hub/)
 [![lint](https://github.com/zacharymplace/learning-hub/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/zacharymplace/learning-hub/actions/workflows/lint.yml)
 [![docs](https://github.com/zacharymplace/learning-hub/actions/workflows/docs.yml/badge.svg)](../../actions/workflows/docs.yml)
 
