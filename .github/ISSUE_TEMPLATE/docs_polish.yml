@@ -1,0 +1,21 @@
+# .github/ISSUE_TEMPLATE/docs_polish.yml
+name: Docs polish
+description: Small improvements to an existing doc (copy, links, code blocks)
+title: "Docs polish: <page or area>"
+labels: [polish]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page (path or URL)
+      placeholder: docs/how-to/pandas-io.md
+    validations: { required: true }
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope / outline
+      placeholder: Bullets for what to improve (links, examples, headings, etc.)
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example code / data (optional)
