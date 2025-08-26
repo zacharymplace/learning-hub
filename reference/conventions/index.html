@@ -623,6 +623,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Conventions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -632,6 +643,88 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#repo-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repo layout
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filenames-headings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filenames &amp; headings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code style
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-types-cross-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data types (cross-tool)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links &amp; paths
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality checks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -685,6 +778,77 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#repo-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repo layout
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filenames-headings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filenames &amp; headings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code style
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-types-cross-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data types (cross-tool)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links &amp; paths
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality checks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -715,16 +879,44 @@
 
 
 <h1 id="conventions">Conventions<a class="headerlink" href="#conventions" title="Permanent link">&para;</a></h1>
+<h2 id="repo-layout">Repo layout<a class="headerlink" href="#repo-layout" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Repo structure</strong></li>
-<li><code>docs/</code> – site content</li>
-<li><code>snippets/</code> – inside docs, grouped by language</li>
-<li>keep filenames <code>kebab-case.md</code></li>
-<li><strong>Code style</strong></li>
-<li>Python: ruff/black defaults; favor pure functions; log to JSONL</li>
-<li>SQL: uppercase keywords; snake_case identifiers</li>
-<li><strong>Docs style</strong></li>
-<li>Short intros, then copy-paste blocks; show defaults; call out pitfalls</li>
+<li><code>docs/</code> – published site content</li>
+<li><code>docs/how-to/</code>, <code>docs/snippets/</code>, <code>docs/reference/</code>, <code>docs/examples/</code></li>
+<li><code>scripts/python/</code> – generators &amp; utilities</li>
+<li><code>.github/</code> – workflows, templates</li>
+</ul>
+<h2 id="filenames-headings">Filenames &amp; headings<a class="headerlink" href="#filenames-headings" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Kebab-case for docs: <code>power-query-handoff.md</code></li>
+<li>One H1 per page; short H2/H3s; verbs for How-Tos (“Export…”, “Validate…”)</li>
+</ul>
+<h2 id="code-style">Code style<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Python:</strong> ruff/black defaults, pure functions, JSONL logs, <code>pyarrow</code> dtypes</li>
+<li><strong>SQL:</strong> UPPER keywords, snake_case identifiers, idempotent staging/merge</li>
+<li><strong>Markdown:</strong> copy-paste blocks first; minimal prose; use admonitions for tips/pitfalls</li>
+</ul>
+<h2 id="data-types-cross-tool">Data types (cross-tool)<a class="headerlink" href="#data-types-cross-tool" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Dates: store/export ISO <code>YYYY-MM-DD</code>, strip TZ for Excel hand-offs</li>
+<li>IDs: keep as text if leading zeros matter</li>
+<li>Booleans: pandas <code>boolean</code>; Excel/PQ logical</li>
+</ul>
+<h2 id="commits">Commits<a class="headerlink" href="#commits" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>docs(how-to): …</code>, <code>docs(snippets): …</code>, <code>chore(examples): …</code></li>
+<li>Use <code>closes #123</code> to auto-close issues</li>
+</ul>
+<h2 id="links-paths">Links &amp; paths<a class="headerlink" href="#links-paths" title="Permanent link">&para;</a></h2>
+<ul>
+<li>From top-level pages → <code>examples/&lt;file&gt;</code></li>
+<li>From <code>how-to/*</code> pages → <code>../examples/&lt;file&gt;</code></li>
+</ul>
+<h2 id="quality-checks">Quality checks<a class="headerlink" href="#quality-checks" title="Permanent link">&para;</a></h2>
+<ul>
+<li>MkDocs build with <code>--strict</code> must be green</li>
+<li>Add examples for anything users copy/paste</li>
 </ul>
 
 
@@ -746,7 +938,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 26, 2025 13:24:52 UTC">August 26, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 26, 2025 21:20:20 UTC">August 26, 2025</span>
   </span>
 
     
