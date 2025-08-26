@@ -1,0 +1,5 @@
+dtypes:
+  txn_id: string
+  account_id: string
+  amount: float64
+dates: [txn_date, posted_date]
