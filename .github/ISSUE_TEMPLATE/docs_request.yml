@@ -1,0 +1,24 @@
+name: Docs request
+description: New How-To, snippet, or improvement
+labels: [proposal]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options: [How-To, Snippet, Reference]
+      default: 0
+  - type: input
+    id: title
+    attributes:
+      label: Working title
+      placeholder: e.g., Forecast rollups (monthly → quarterly)
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope / outline
+      placeholder: Bullets for sections, examples, and pitfalls
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example code / data (optional)
