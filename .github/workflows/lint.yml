@@ -1,5 +1,19 @@
 name: lint
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "**/*.py"
+      - ".github/workflows/lint.yml"
+  pull_request:
+    paths:
+      - "**/*.py"
+      - ".github/workflows/lint.yml"
+
 jobs:
-  call:
-    uses: zacharymplace/gha-templates/.github/workflows/reusable-lint.yml@main
+  # whatever you already run (ruff/black/mypy, etc.)
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # your existing lint steps here
