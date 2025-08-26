@@ -1,5 +1,6 @@
 # Learning hub 
 
+[![Discussions](https://img.shields.io/badge/discussions-ask%20a%20question-5865f2)](../../discussions)
 [![docs](https://github.com/zacharymplace/learning-hub/actions/workflows/docs.yml/badge.svg)](../../actions/workflows/docs.yml)
 [![generate examples](https://github.com/zacharymplace/learning-hub/actions/workflows/generate-examples.yml/badge.svg)](../../actions/workflows/generate-examples.yml)
 [![Pages](https://img.shields.io/badge/website-live-4c1)](https://zacharymplace.github.io/learning-hub/)
