@@ -22,8 +22,8 @@ jobs:
           pip install pandas pyarrow
       - name: Generate sample files
         run: |
-          python scripts/generate_pq_handoff_examples.py --outdir examples
-          ls -lah examples || true
+          python scripts/python/generate_pq_handoff_examples.py --outdir docs/examples
+          ls -lah docs/examples || true
       - name: Commit changes (if any)
         run: |
           git config user.name "github-actions[bot]"
