@@ -2,11 +2,20 @@ name: CI Pipeline
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+    paths:
+      - "**/*.py"
+      - "scripts/**"
+      - "pyproject.toml"
+      - "requirements*.txt"
+      - ".github/workflows/ci.yml"
   pull_request:
-    branches:
-      - main
+    paths:
+      - "**/*.py"
+      - "scripts/**"
+      - "pyproject.toml"
+      - "requirements*.txt"
+      - ".github/workflows/ci.yml"
 
 jobs:
   build:
