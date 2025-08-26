@@ -2,3 +2,4 @@ mkdocs==1.6.1
 mkdocs-material==9.5.34
 mkdocs-awesome-pages-plugin==2.9.3
 pymdown-extensions==10.11.2
+mkdocs-git-revision-date-localized-plugin
