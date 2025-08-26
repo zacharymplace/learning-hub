@@ -1,0 +1,7 @@
+entity,dept,month,amount
+US,Ops,2025-01-31,100
+US,Ops,2025-02-28,120
+US,Ops,2025-03-31,90
+US,Sales,2025-01-31,50
+US,Sales,2025-02-28,65
+US,Sales,2025-03-31,70
