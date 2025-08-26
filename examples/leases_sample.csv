@@ -1,0 +1,4 @@
+lease_id,vendor,commencement_date,end_date,monthly_rent,currency,auto_renew,is_active
+L-100,OfficeCo,2024-07-01,2025-06-30,2500,USD,TRUE,TRUE
+L-101,Storage Inc,2024-03-15,,800,USD,FALSE,TRUE
+L-102,MRT Parking,2024-01-01,2024-12-31,150,USD,TRUE,TRUE
