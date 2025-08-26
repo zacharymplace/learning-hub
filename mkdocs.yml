@@ -63,6 +63,7 @@ nav:
       - Power Query Hand-off Patterns: how-to/power-query-handoff.md
       - Mermaid Gallery: how-to/mermaid-gallery.md
       - Pandas I/O Cheats: how-to/pandas-io.md
+      - Forecast rollups (monthly → quarterly): how-to/forecast-rollups.md
   - Snippets:
       - SQL: snippets/sql.md
       - Python: snippets/python.md
