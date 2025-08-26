@@ -2,7 +2,7 @@
 
 Download the sample files used in the Power Query hand-off guide:
 
-- [pq_handoff_sample.csv](examples/pq_handoff_sample.csv)
-- [pq_handoff_sample.parquet](examples/pq_handoff_sample.parquet)
+<a href="examples/pq_handoff_sample.csv" download>Download CSV</a><br/>
+<a href="examples/pq_handoff_sample.parquet" download>Download Parquet</a>
 
 > Tip: Right-click → “Save link as…” if your browser tries to open them inline.
