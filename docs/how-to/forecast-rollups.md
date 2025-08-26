@@ -52,6 +52,7 @@ GROUP BY 1,2,3;
 **Examples:** see `forecast_monthly.csv` in Examples
 
 
+
 ## SQL recipes
 
 ### Postgres
