@@ -1,0 +1,9 @@
+txn_id,txn_date,posted_date,account_id,merchant,memo,category,currency,amount,is_recurring,is_refund
+T0001,2025-08-16,2025-08-17,10001,Acme Supplies,Office restock,Office,USD,123.45,False,False
+T0002,2025-08-17,2025-08-18,000123,Transit Pass,CTA reload,Transport,USD,25.0,True,False
+T0003,2025-08-18,2025-08-19,10002,Acme Supplies,Returned items,Office,USD,-12.5,False,True
+T0004,2025-08-19,2025-08-20,10003,Café Río,Team lunch – Q3 kickoff,Meals,USD,87.99,False,False
+T0005,2025-08-20,2025-08-21,10004,Data Warehouse,Monthly subscription,SaaS,USD,499.0,,False
+T0006,2025-08-21,2025-08-22,10005,Git Hosting,"Plan upgrade (includes ""Actions"" minutes)",SaaS,USD,19.0,True,False
+T0007,2025-08-22,2025-08-23,10006,Cloud Storage,Annual plan,SaaS,EUR,220.0,True,False
+T0008,2025-08-23,2025-08-24,10007,Unknown Vendor,Pending classification,,USD,,False,False
