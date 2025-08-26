@@ -1,0 +1,25 @@
+name: Bug report
+description: Something isn’t working as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Include page link, screenshot, and steps.
+      placeholder: e.g., Broken link on How-To → Power Query Hand-off
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Affected page (URL)
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: 1) Go to … 2) Click … 3) See error …
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes / ideas to fix
