@@ -64,3 +64,9 @@ nav:
       - Conventions: reference/conventions.md
   - Examples: examples.md
 
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/zacharymplace
+      name: GitHub • zacharymplace
+    # add more later (X, YouTube, etc.)
