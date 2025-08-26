@@ -255,8 +255,7 @@ Yes—use the Parquet connector with the file path/URL your tenant supports, or 
 
 ---
 
-<a href="examples/pq_handoff_sample.csv" download>Download CSV</a><br/>
-<a href="examples/pq_handoff_sample.parquet" download>Download Parquet</a>
-
+<a href="../examples/pq_handoff_sample.csv" download>Download CSV</a><br/>
+<a href="../examples/pq_handoff_sample.parquet" download>Download Parquet</a>
 
 *Last updated:* {{ date | strftime('%Y-%m-%d') }}
