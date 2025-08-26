@@ -809,38 +809,35 @@
 <h1 id="mermaid-gallery">Mermaid Gallery<a class="headerlink" href="#mermaid-gallery" title="Permanent link">&para;</a></h1>
 <p>Quick, reusable diagrams for finance ops.</p>
 <h2 id="etl-pipeline">ETL pipeline<a class="headerlink" href="#etl-pipeline" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>flowchart LR
-  A[&quot;Source data&quot;] --&gt; B[&quot;Import&quot;]
-  B --&gt; C[&quot;Transform&quot;]
-  C --&gt; D[&quot;Validate&quot;]
-  D --&gt; E[&quot;Load to target&quot;]
-  C --&gt; C1[&quot;Type casts&lt;br/&gt;normalize headers&quot;]
-  C --&gt; C2[&quot;Deduplicate&lt;br/&gt;join dims&quot;]
-  D --&gt; D1[&quot;Row counts&lt;br/&gt;null checks&quot;]
-  D --&gt; D2[&quot;Schema check&quot;]
-</code></pre></div>
+<pre class="mermaid"><code>flowchart LR
+  A["Source data"] --&gt; B["Import"]
+  B --&gt; C["Transform"]
+  C --&gt; D["Validate"]
+  D --&gt; E["Load to target"]
+  C --&gt; C1["Type casts&lt;br/&gt;normalize headers"]
+  C --&gt; C2["Deduplicate&lt;br/&gt;join dims"]
+  D --&gt; D1["Row counts&lt;br/&gt;null checks"]
+  D --&gt; D2["Schema check"]</code></pre>
 <h2 id="close-hub-overview">Close Hub Overview<a class="headerlink" href="#close-hub-overview" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>flowchart TD
-  subgraph S[&quot;Close Hub&quot;]
-    R[&quot;Bank recs&quot;] --&gt; TB[&quot;Trial balance&quot;]
-    AP[&quot;AP close&quot;] --&gt; TB
-    AR[&quot;AR close&quot;] --&gt; TB
-    JE[&quot;JEs prepared/reviewed&quot;] --&gt; TB
-    TB --&gt; FL[&quot;Flux/variance&lt;br/&gt;review&quot;]
-    FL --&gt; PK[&quot;Package &amp; sign-off&quot;]
-  end
-</code></pre></div>
+<pre class="mermaid"><code>flowchart TD
+  subgraph S["Close Hub"]
+    R["Bank recs"] --&gt; TB["Trial balance"]
+    AP["AP close"] --&gt; TB
+    AR["AR close"] --&gt; TB
+    JE["JEs prepared/reviewed"] --&gt; TB
+    TB --&gt; FL["Flux/variance&lt;br/&gt;review"]
+    FL --&gt; PK["Package &amp; sign-off"]
+  end</code></pre>
 <h2 id="ramp-quarterly-access-review-qar">Ramp Quarterly Access Review (QAR)<a class="headerlink" href="#ramp-quarterly-access-review-qar" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>flowchart LR
-  X[&quot;Export users &amp; roles&quot;] --&gt; Y[&quot;Prep review file&quot;]
-  Y --&gt; M[&quot;Manager review&quot;]
-  M --&gt; E[&quot;Exceptions queue&quot;]
-  M --&gt; OK[&quot;No exceptions&quot;]
-  E --&gt; C[&quot;Controller/CISO review&quot;]
-  OK --&gt; Cert[&quot;Controller certifies&quot;]
+<pre class="mermaid"><code>flowchart LR
+  X["Export users &amp; roles"] --&gt; Y["Prep review file"]
+  Y --&gt; M["Manager review"]
+  M --&gt; E["Exceptions queue"]
+  M --&gt; OK["No exceptions"]
+  E --&gt; C["Controller/CISO review"]
+  OK --&gt; Cert["Controller certifies"]
   C --&gt; Cert
-  Cert --&gt; Arc[&quot;Archive + audit log&quot;]
-</code></pre></div>
+  Cert --&gt; Arc["Archive + audit log"]</code></pre>
 
 
 

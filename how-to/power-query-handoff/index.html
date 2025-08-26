@@ -976,16 +976,15 @@
 </ul>
 <hr />
 <h2 id="recommended-workflow">Recommended workflow<a class="headerlink" href="#recommended-workflow" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>flowchart LR
-  A[&quot;Source (DB/CSV/XLSX)&quot;] --&gt; B[&quot;Python Transform&quot;]
-  B --&gt; C{&quot;Export Format&quot;}
-  C --&gt;|Parquet| D[&quot;.parquet&lt;br/&gt;types preserved&quot;]
-  C --&gt;|CSV| E[&quot;.csv&lt;br/&gt;+ schema + locale&quot;]
-  D --&gt; F[&quot;Power Query&lt;br/&gt;From Parquet&quot;]
-  E --&gt; G[&quot;Power Query&lt;br/&gt;From Text/CSV&lt;br/&gt;Using Locale + Types&quot;]
-  F --&gt; H[&quot;Model/Report&quot;]
-  G --&gt; H
-</code></pre></div>
+<pre class="mermaid"><code>flowchart LR
+  A["Source (DB/CSV/XLSX)"] --&gt; B["Python Transform"]
+  B --&gt; C{"Export Format"}
+  C --&gt;|Parquet| D[".parquet&lt;br/&gt;types preserved"]
+  C --&gt;|CSV| E[".csv&lt;br/&gt;+ schema + locale"]
+  D --&gt; F["Power Query&lt;br/&gt;From Parquet"]
+  E --&gt; G["Power Query&lt;br/&gt;From Text/CSV&lt;br/&gt;Using Locale + Types"]
+  F --&gt; H["Model/Report"]
+  G --&gt; H</code></pre>
 <hr />
 <h2 id="standard-schema-example">Standard schema (example)<a class="headerlink" href="#standard-schema-example" title="Permanent link">&para;</a></h2>
 <p>Use a dict to lock types. Adjust to your domain.</p>
