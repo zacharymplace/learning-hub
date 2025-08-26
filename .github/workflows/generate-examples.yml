@@ -35,11 +35,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          if [ -d "${EXAMPLES_DIR}" ]; then
-            git add "${EXAMPLES_DIR}/"
-          else
-            echo "Expected directory ${EXAMPLES_DIR} not found"; exit 1
-          fi
+          ls -lah "${EXAMPLES_DIR}" || true
+          # Show if CSV is ignored
+          git check-ignore -v "${EXAMPLES_DIR}/pq_handoff_sample.csv" || true
+
+          # Force add even if ignored
+          git add -f "${EXAMPLES_DIR}"/*.csv "${EXAMPLES_DIR}"/*.parquet || true
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
