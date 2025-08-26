@@ -17,3 +17,4 @@ Welcome—this is my working notebook for patterns I reuse: data wrangling, fina
 - **Snippets (SQL/Python)** – ready to drop into day-to-day work.
 
 Have an idea? Open an issue with the label `proposal`.
+
