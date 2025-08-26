@@ -29,3 +29,32 @@ def write_audit_event(outdir: str, event: dict) -> None:
 ```
     with open(Path(outdir) / "audit_log.jsonl", "a", encoding="utf-8") as f:
         f.write(json.dumps(event, ensure_ascii=False) + "\n")
+
+## read_csv with YAML schema
+
+Use a YAML file to enforce dtypes and parsed dates at read time.
+
+```yaml
+# docs/examples/schema.yaml
+dtypes:
+  txn_id: string
+  account_id: string
+  amount: float64
+dates: [txn_date, posted_date]
+```
+
+```python
+import yaml, pandas as pd
+
+with open("docs/examples/schema.yaml") as f:
+    s = yaml.safe_load(f)
+
+df = pd.read_csv(
+    "docs/examples/in.csv",
+    dtype=s["dtypes"],
+    parse_dates=s.get("dates", []),
+    encoding="utf-8"
+)
+df.columns = (df.columns.str.strip().str.lower()
+              .str.replace(r"[^a-z0-9]+","_", regex=True))
+```
