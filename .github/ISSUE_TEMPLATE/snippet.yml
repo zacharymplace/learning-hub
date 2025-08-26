@@ -1,0 +1,31 @@
+name: Snippet request
+description: Add a small, reusable code snippet to the Learning Hub
+title: "Snippet: <short name>"
+labels: [snippet, proposal]
+body:
+  - type: input
+    id: working_title
+    attributes:
+      label: Working title
+      placeholder: e.g., read_csv with YAML schema
+    validations: { required: true }
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope / outline
+      placeholder: What the snippet does, inputs/outputs, pitfalls
+  - type: textarea
+    id: code
+    attributes:
+      label: Example code (optional)
+      render: python
+  - type: input
+    id: target
+    attributes:
+      label: Target doc path
+      placeholder: docs/snippets/python.md
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: Copy-paste-ready, brief rationale, link from nav if new page
