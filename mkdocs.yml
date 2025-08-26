@@ -12,6 +12,8 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
+    - navigation.top
+    - navigation.footer
     - content.code.copy
     - content.action.view
     - content.action.edit
