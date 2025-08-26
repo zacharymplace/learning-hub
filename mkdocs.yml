@@ -47,3 +47,5 @@ nav:
       - Python: snippets/python.md
   - Reference:
       - Conventions: reference/conventions.md
+  - Examples: examples.md
+
