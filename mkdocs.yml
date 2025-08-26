@@ -2,6 +2,7 @@ site_name: Z$ Learning Hub
 site_description: Patterns, recipes, and notes I reuse across finance, ops, and creative work.
 site_url: https://zacharymplace.github.io/learning-hub/
 repo_url: https://github.com/zacharymplace/learning-hub
+edit_uri: edit/main/docs/
 repo_name: learning-hub
 copyright: "© {{ date | strftime('%Y') }} Z$"
 
@@ -13,6 +14,7 @@ theme:
     - navigation.tabs
     - content.code.copy
     - content.action.view
+    - content.action.edit
     - search.suggest
     - search.highlight
     - toc.follow
