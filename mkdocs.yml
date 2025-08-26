@@ -1,7 +1,7 @@
 site_name: Z$ Learning Hub
 site_description: Patterns, recipes, and notes I reuse across finance, ops, and creative work.
-site_url: https://<your-username>.github.io/learning-hub/
-repo_url: https://github.com/<your-username>/learning-hub
+site_url: https://zacharymplace.github.io/learning-hub/
+repo_url: https://github.com/zacharymplace/learning-hub
 repo_name: learning-hub
 copyright: "© {{ date | strftime('%Y') }} Z$"
 
