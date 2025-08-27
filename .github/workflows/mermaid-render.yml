@@ -1,11 +1,13 @@
 name: Render Mermaid diagrams
 on:
   push:
-    paths: ["docs/diagrams/**.mmd"]
+    paths:
+      - "docs/diagrams/**.mmd"
+      - ".github/puppeteer.json"
   workflow_dispatch: {}
 
 permissions:
-  contents: write
+  contents: write   # allow committing rendered SVGs
 
 jobs:
   render:
@@ -13,9 +15,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
+
       - uses: actions/setup-node@v4
         with: { node-version: '18' }
-      - run: npm i -g @mermaid-js/mermaid-cli
+
+      - name: Install Mermaid CLI
+        run: npm i -g @mermaid-js/mermaid-cli
+
       - name: Render to SVG
         shell: bash
         run: |
@@ -23,9 +29,14 @@ jobs:
           mkdir -p docs/assets/diagrams
           for f in docs/diagrams/*.mmd; do
             base=$(basename "$f" .mmd)
-            mmdc -i "$f" -o "docs/assets/diagrams/$base.svg" -b transparent -t neutral
+            mmdc -p .github/puppeteer.json \
+                 -i "$f" \
+                 -o "docs/assets/diagrams/$base.svg" \
+                 -b transparent -t neutral
           done
+
       - name: Commit rendered diagrams
+        shell: bash
         run: |
           if [[ -n "$(git status --porcelain docs/assets/diagrams)" ]]; then
             git config user.name "github-actions[bot]"
