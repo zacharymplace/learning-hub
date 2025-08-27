@@ -1,0 +1,10 @@
+max-retries = 2
+timeout = 15
+retry-wait-time = 2
+follow-location = true
+exclude = [
+  "http://127.0.0.1:*",
+  "https://zacharymplace.github.io/learning-hub/.*",
+  "^mailto:",
+]
+accept = [200, 206, 301, 302, 429]

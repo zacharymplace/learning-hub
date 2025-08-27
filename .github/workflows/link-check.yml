@@ -1,0 +1,23 @@
+name: Link Check
+on:
+  push:
+  pull_request:
+  schedule: [ { cron: "0 7 * * 1" } ]   # Mondays 07:00 UTC
+  workflow_dispatch: {}
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            --accept 200,206,301,302,429
+            --exclude-mail
+            --config .github/lychee.toml
+            docs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
