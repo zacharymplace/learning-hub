@@ -255,6 +255,6 @@ Yes—use the Parquet connector with the file path/URL your tenant supports, or 
 
 ---
 
-**Examples:** see the downloadable datasets in [Examples](../examples.md).
+**Examples:** see the downloadable datasets in [Examples](../examples/examples.md).
 
 *Last updated:* {{ date | strftime('%Y-%m-%d') }}
