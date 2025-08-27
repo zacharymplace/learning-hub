@@ -3,7 +3,7 @@
 > Clean, predictable transfers from Python/SQL into Excel Power Query (PQ).
 
 !!! tip "TL;DR"
-    - Prefer **Parquet** when possible: better types, fewer surprises.  
+    - Prefer **Parquet** when possible: better types, fewer surprises.
     - If using **CSV**, control the schema (dtypes, date formats, locale) and document it.
 
 ---
@@ -15,7 +15,7 @@
 
 ## Prerequisites
 - Python 3.11+ with pandas (and pyarrow for Parquet).
-- Excel with Power Query (Get & Transform).  
+- Excel with Power Query (Get & Transform).
 - A consistent standard schema for your exports.
 
 ---
@@ -98,7 +98,7 @@ def export_parquet(df: pd.DataFrame, path: str) -> None:
 
 **Power Query steps (Excel):**
 1. Data → Get Data → From File → From Parquet.
-2. Browse to your .parquet export and Load.  
+2. Browse to your .parquet export and Load.
    Power Query will infer logical/number/date correctly from Parquet metadata.
 
 ---
@@ -125,8 +125,8 @@ def export_csv(df: pd.DataFrame, path: str) -> None:
 ```
 
 **Power Query steps (Excel) for CSV:**
-1. Data → Get Data → From Text/CSV → pick your file.  
-2. In the preview dialog, choose File Origin/Delimiter if needed. Click Transform Data.  
+1. Data → Get Data → From Text/CSV → pick your file.
+2. In the preview dialog, choose File Origin/Delimiter if needed. Click Transform Data.
 3. In PQ:
    - Home → Use First Row as Headers (if needed).
    - Transform → Detect Data Type (avoid); instead set types explicitly:
@@ -193,31 +193,31 @@ in
 
 ## Pitfalls & fixes
 
-- **Datetime shifts (TZ)**  
-  *Symptom:* dates appear one day off in Excel.  
+- **Datetime shifts (TZ)**
+  *Symptom:* dates appear one day off in Excel.
   *Fix (Python):*
   ```python
   df[c] = pd.to_datetime(df[c], errors="coerce").dt.tz_localize(None)
   ```
-- **Leading zeros lost**  
-  *Symptom:* 00123 becomes 123.  
+- **Leading zeros lost**
+  *Symptom:* 00123 becomes 123.
   *Fix:* keep IDs as text in Python (dtype="string") and set Text in PQ.
-- **Decimal or thousand separators misread**  
-  *Symptom:* 1,234.56 becomes 123456 or text.  
+- **Decimal or thousand separators misread**
+  *Symptom:* 1,234.56 becomes 123456 or text.
   *Fix:* In PQ, use Using Locale → Decimal Number with en-US.
-- **Booleans become text**  
-  *Symptom:* True/False shows as "True"/"False".  
+- **Booleans become text**
+  *Symptom:* True/False shows as "True"/"False".
   *Fix:* In PQ, set type to True/False. From Python, use pandas boolean dtype.
-- **CSV encoding issues**  
-  *Symptom:* special characters garbled.  
+- **CSV encoding issues**
+  *Symptom:* special characters garbled.
   *Fix:* write encoding="utf-8"; in PQ, encoding 65001 (UTF-8).
 
 ---
 
 ## Verification checklist (1 min)
 
-- Row count matches between Python and PQ.  
-- Key columns have expected types in PQ (Date, Decimal Number, True/False, Text).  
+- Row count matches between Python and PQ.
+- Key columns have expected types in PQ (Date, Decimal Number, True/False, Text).
 - Spot-check a few rows for:
   - Leading zeros on IDs
   - Amounts with decimals
@@ -244,13 +244,13 @@ in
 
 ## FAQ
 
-**Why not always use Parquet?**  
+**Why not always use Parquet?**
 Parquet is best for fidelity and size, but some teams still need CSV for hand edits or legacy tools. This guide keeps CSV safe when required.
 
-**Do I need utf-8-sig?**  
+**Do I need utf-8-sig?**
 Usually no. Use utf-8. If another system demands BOM, write encoding="utf-8-sig" and set PQ encoding to 65001.
 
-**Can Power Query read Parquet on SharePoint/OneDrive?**  
+**Can Power Query read Parquet on SharePoint/OneDrive?**
 Yes—use the Parquet connector with the file path/URL your tenant supports, or land the file locally/SharePoint and select it via Get Data → From Parquet.
 
 ---

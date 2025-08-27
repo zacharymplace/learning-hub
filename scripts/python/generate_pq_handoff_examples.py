@@ -177,7 +177,9 @@ def normalize_and_order(df: pd.DataFrame) -> pd.DataFrame:
     # ensure all schema cols present & cast types
     for col, typ in SCHEMA.items():
         if col not in df.columns:
-            df[col] = pd.Series([None] * len(df), dtype="string" if typ == "string" else typ)
+            df[col] = pd.Series(
+                [None] * len(df), dtype="string" if typ == "string" else typ
+            )
         else:
             df[col] = df[col].astype(typ)
 
@@ -208,14 +210,18 @@ def export_csv(df: pd.DataFrame, path: Path) -> None:
     df_out = df.copy()
     for c in DATE_COLS:
         if c in df_out.columns:
-            df_out[c] = pd.to_datetime(df_out[c], errors="coerce").dt.strftime("%Y-%m-%d")
+            df_out[c] = pd.to_datetime(df_out[c], errors="coerce").dt.strftime(
+                "%Y-%m-%d"
+            )
     df_out.to_csv(path, index=False, encoding="utf-8", lineterminator="\n")
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate PQ handoff example files.")
     parser.add_argument(
-        "--outdir", default="examples", help="Directory to write sample files into (default: ./examples)"
+        "--outdir",
+        default="examples",
+        help="Directory to write sample files into (default: ./examples)",
     )
     args = parser.parse_args()
 

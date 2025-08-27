@@ -1,4 +1,4 @@
-# Learning hub 
+# Learning hub
 
 [![docs](https://github.com/zacharymplace/learning-hub/actions/workflows/docs.yml/badge.svg)](../../actions/workflows/docs.yml)
 [![render mermaid](https://github.com/zacharymplace/learning-hub/actions/workflows/mermaid-render.yml/badge.svg)](../../actions/workflows/mermaid-render.yml)

@@ -134,4 +134,3 @@ GROUP BY
     DATEADD(QUARTER, DATEDIFF(QUARTER, 0, DATEADD(MONTH, -6, [month])), 0)
   );
 ```
-

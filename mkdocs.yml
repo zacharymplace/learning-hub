@@ -42,7 +42,7 @@ plugins:
       type: timeago
       locale: en
       enable_creation_date: true
-      fallback_to_build_date: true 
+      fallback_to_build_date: true
 
 markdown_extensions:
   - admonition
