@@ -1,5 +1,8 @@
 # Learning hub 
 
+[![docs](https://github.com/zacharymplace/learning-hub/actions/workflows/docs.yml/badge.svg)](../../actions/workflows/docs.yml)
+[![render mermaid](https://github.com/zacharymplace/learning-hub/actions/workflows/mermaid-render.yml/badge.svg)](../../actions/workflows/mermaid-render.yml)
+[![link check](https://github.com/zacharymplace/learning-hub/actions/workflows/link-check.yml/badge.svg)](../../actions/workflows/link-check.yml)
 [![Discussions](https://img.shields.io/badge/discussions-ask%20a%20question-5865f2)](../../discussions)
 [![docs](https://github.com/zacharymplace/learning-hub/actions/workflows/docs.yml/badge.svg)](../../actions/workflows/docs.yml)
 [![generate examples](https://github.com/zacharymplace/learning-hub/actions/workflows/generate-examples.yml/badge.svg)](../../actions/workflows/generate-examples.yml)
