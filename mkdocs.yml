@@ -76,7 +76,6 @@ nav:
   - Examples: examples/examples.md
   - Mermaid export: how-to/mermaid-export.md
   - Decisions: decisions/README.md
-  - Examples: examples.md
 
 extra:
   social:
