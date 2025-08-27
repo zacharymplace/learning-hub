@@ -39,8 +39,8 @@ plugins:
   - search
   - awesome-pages
   - git-revision-date-localized:
-      type: date
-      format: "%b %-d, %Y"
+      type: timeago
+      locale: en
       enable_creation_date: true
       fallback_to_build_date: true 
 
