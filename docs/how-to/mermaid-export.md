@@ -60,10 +60,10 @@ Get-ChildItem docs/diagrams -Filter *.mmd | ForEach-Object {
 ## Use in pages
 
 ```markdown
-![Close process](../assets/diagrams/close-process.svg)
+![Close process](/learning-hub/assets/diagrams/close-process.svg)
 ```
 
 ### Example output
-![Close process](../assets/diagrams/close-process.svg)
+![Close process](/learning-hub/assets/diagrams/close-process.svg)
 
 **Tips**: prefer SVG for the site, PNG for slides, themes via `-t default|neutral|forest|dark`.
