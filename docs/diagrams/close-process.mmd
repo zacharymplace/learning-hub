@@ -1,0 +1,6 @@
+flowchart LR
+  A[Close Start] --> B(Load Trial Balance)
+  B --> C{Variance > Threshold?}
+  C -->|Yes| D[Investigate]
+  C -->|No| E[Post Adjustments]
+  E --> F[Close Done]
