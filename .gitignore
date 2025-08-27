@@ -30,3 +30,7 @@ dist/
 node_modules/
 out/
 out/*.csv
+
+# editor backups
+*.bak
+*~
