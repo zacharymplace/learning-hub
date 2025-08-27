@@ -8,6 +8,7 @@ copyright: "© {{ date | strftime('%Y') }} Z$"
 
 theme:
   name: material
+  custom_dir: docs/overrides
   features:
     - navigation.instant
     - navigation.tracking
@@ -39,6 +40,8 @@ plugins:
   - awesome-pages
   - git-revision-date-localized:
       type: date
+      format: "%b %-d, %Y"
+      enable_creation_date: true
       fallback_to_build_date: true 
 
 markdown_extensions:

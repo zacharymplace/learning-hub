@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {{ super() }}
+  <div class="md-typeset" style="margin-top: 1rem; opacity: .8;">
+    <small>
+      Last updated:
+      {{ page.meta.git_revision_date_localized or "—" }}
+      {% if page.meta.git_creation_date_localized and not page.meta.git_revision_date_localized %}
+        (created {{ page.meta.git_creation_date_localized }})
+      {% endif %}
+    </small>
+  </div>
+{% endblock %}
