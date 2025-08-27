@@ -63,4 +63,7 @@ Get-ChildItem docs/diagrams -Filter *.mmd | ForEach-Object {
 ![Close process](../assets/diagrams/close-process.svg)
 ```
 
+### Example output
+![Close process](../assets/diagrams/close-process.svg)
+
 **Tips**: prefer SVG for the site, PNG for slides, themes via `-t default|neutral|forest|dark`.
