@@ -806,6 +806,90 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#local-cli-svgpng-via-mmdc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local CLI (SVG/PNG via mmdc)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Local CLI (SVG/PNG via mmdc)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-once" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install (once)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Layout
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export one
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      Batch export
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Batch export">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bash
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      PowerShell
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-in-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use in pages
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -889,6 +973,90 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#local-cli-svgpng-via-mmdc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local CLI (SVG/PNG via mmdc)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Local CLI (SVG/PNG via mmdc)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-once" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install (once)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Layout
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export one
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      Batch export
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Batch export">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bash
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      PowerShell
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-in-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use in pages
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -932,6 +1100,37 @@
   A[Import] --&gt; B[Transform]
   B --&gt; C[Validate]
   C --&gt; D[Load]</code></pre>
+<h2 id="local-cli-svgpng-via-mmdc">Local CLI (SVG/PNG via <code>mmdc</code>)<a class="headerlink" href="#local-cli-svgpng-via-mmdc" title="Permanent link">&para;</a></h2>
+<h3 id="install-once">Install (once)<a class="headerlink" href="#install-once" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>@mermaid-js/mermaid-cli
+mmdc<span class="w"> </span>--version
+</code></pre></div>
+<h2 id="project-layout">Project Layout<a class="headerlink" href="#project-layout" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>docs/
+<span class="w">  </span>diagrams/<span class="w">          </span><span class="c1"># .mmd sources (not published)</span>
+<span class="w">  </span>assets/diagrams/<span class="w">   </span><span class="c1"># rendered .svg/.png used in pages</span>
+</code></pre></div>
+<h2 id="export-one">Export one<a class="headerlink" href="#export-one" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>mmdc<span class="w"> </span>-i<span class="w"> </span>docs/diagrams/close-process.mmd<span class="w"> </span>-o<span class="w"> </span>docs/assets/diagrams/close-process.svg<span class="w"> </span>-b<span class="w"> </span>transparent<span class="w"> </span>-t<span class="w"> </span>neutral
+mmdc<span class="w"> </span>-i<span class="w"> </span>docs/diagrams/close-process.mmd<span class="w"> </span>-o<span class="w"> </span>docs/assets/diagrams/close-process.png<span class="w"> </span>-s<span class="w"> </span><span class="m">2</span>
+</code></pre></div>
+<h2 id="batch-export">Batch export<a class="headerlink" href="#batch-export" title="Permanent link">&para;</a></h2>
+<h3 id="bash">Bash<a class="headerlink" href="#bash" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span>docs/diagrams/*.mmd<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nv">base</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span><span class="w"> </span>.mmd<span class="k">)</span>
+<span class="w">  </span>mmdc<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span><span class="w"> </span>-o<span class="w"> </span><span class="s2">&quot;docs/assets/diagrams/</span><span class="nv">$base</span><span class="s2">.svg&quot;</span><span class="w"> </span>-b<span class="w"> </span>transparent<span class="w"> </span>-t<span class="w"> </span>neutral
+<span class="k">done</span>
+</code></pre></div>
+<h3 id="powershell">PowerShell<a class="headerlink" href="#powershell" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-ChildItem</span> <span class="n">docs</span><span class="p">/</span><span class="n">diagrams</span> <span class="n">-Filter</span> <span class="p">*.</span><span class="n">mmd</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span>
+  <span class="nv">$base</span> <span class="p">=</span> <span class="no">[IO.Path]</span><span class="p">::</span><span class="n">GetFileNameWithoutExtension</span><span class="p">(</span><span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span><span class="p">)</span>
+  <span class="n">mmdc</span> <span class="n">-i</span> <span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span> <span class="n">-o</span> <span class="s2">&quot;docs/assets/diagrams/$base.svg&quot;</span> <span class="n">-b</span> <span class="n">transparent</span> <span class="n">-t</span> <span class="n">neutral</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="use-in-pages">Use in pages<a class="headerlink" href="#use-in-pages" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>![<span class="nt">Close process</span>](<span class="na">../assets/diagrams/close-process.svg</span>)
+</code></pre></div>
+<p><strong>Tips</strong>: prefer SVG for the site, PNG for slides, themes via <code>-t default|neutral|forest|dark</code>.</p>
 
 
 
@@ -954,7 +1153,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 26, 2025 13:15:15 UTC"><span class="timeago" datetime="2025-08-26T13:15:15+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 26, 2025 13:15:15 UTC">2025-08-26</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 27, 2025 01:08:14 UTC"><span class="timeago" datetime="2025-08-27T01:08:14+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 27, 2025 01:08:14 UTC">2025-08-27</span>
   </span>
 
     
