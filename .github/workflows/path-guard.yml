@@ -19,13 +19,20 @@ jobs:
         run: |
           set -euo pipefail
           # Search tracked files for forbidden local paths.
-          # Exclude this workflow file so the literals below don't trigger.
+          # Exclude this workflow (and other noisy/binary paths).
           if git grep -nF \
             -e 'C:/Users/Zacha/code/' \
             -e 'C:\\Users\\Zacha\\code\\' \
             -e 'Users/Zacha/code/' \
-            -- . ':(exclude).github/workflows/path-guard.yml' ; then
+            -- . \
+            ':(exclude).github/workflows/path-guard.yml' \
+            ':(exclude).github/workflows/**' \
+            ':(exclude)out/**' \
+            ':(exclude)*.png' ':(exclude)*.jpg' ':(exclude)*.jpeg' \
+            ':(exclude)*.gif' ':(exclude)*.svg' ':(exclude)*.ico' \
+            ':(exclude)*.pdf' ':(exclude)*.zip' ':(exclude)*.mp4' ':(exclude)*.mov' \
+            ':(exclude)*.parquet' ; then
             echo "::error::Found hardcoded local paths. Replace with relative repo paths."
             exit 1
-
-::contentReference[oaicite:0]{index=0}
+          fi
+          echo "No forbidden local paths found."
