@@ -1,12 +1,36 @@
 name: Path Guard
+
 on:
-  pull_request:
   push:
-    branches: [ main ]
+    branches: ['**']
+  pull_request:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
 jobs:
   guard:
-    uses: zacharymplace/gha-templates/.github/workflows/path-guard.yml@main
-    with:
-      # extra_patterns: ""
-      # extra_excludes: |
-      #   --exclude-dir=docs/fixtures
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Block hardcoded local paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Search for hardcoded local paths (fixed strings)
+          # Exclude common binaries/outputs.
+          if git grep -nF -I \
+            -e 'C:/Users/Zacha/code/' \
+            -e 'C:\\Users\\Zacha\\code\\' \
+            -e 'Users/Zacha/code/' \
+            -- \
+            ':!*.png' ':!*.jpg' ':!*.jpeg' ':!*.gif' ':!*.svg' ':!*.ico' \
+            ':!*.pdf' ':!*.zip' ':!*.mp4' ':!*.mov' ':!*.parquet' \
+            ':!out/*' ':!.venv/*' ':!node_modules/*' ':!.git/*' ; then
+            echo "::error::Found hardcoded local paths. Replace with relative repo paths."
+            exit 1
+          fi
+          echo "No hardcoded local paths found."
+
