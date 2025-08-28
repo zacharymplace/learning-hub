@@ -2,35 +2,30 @@ name: Path Guard
 
 on:
   push:
-    branches: ['**']
+    branches: [main]
   pull_request:
   workflow_dispatch: {}
 
-permissions:
-  contents: read
-
 jobs:
-  guard:
+  path-guard:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Block hardcoded local paths
         shell: bash
         run: |
           set -euo pipefail
-          # Search for hardcoded local paths (fixed strings)
-          # Exclude common binaries/outputs.
-          if git grep -nF -I \
+          # Search tracked files for forbidden local paths.
+          # Exclude this workflow file so the literals below don't trigger.
+          if git grep -nF \
             -e 'C:/Users/Zacha/code/' \
             -e 'C:\\Users\\Zacha\\code\\' \
             -e 'Users/Zacha/code/' \
-            -- \
-            ':!*.png' ':!*.jpg' ':!*.jpeg' ':!*.gif' ':!*.svg' ':!*.ico' \
-            ':!*.pdf' ':!*.zip' ':!*.mp4' ':!*.mov' ':!*.parquet' \
-            ':!out/*' ':!.venv/*' ':!node_modules/*' ':!.git/*' ; then
+            -- . ':(exclude).github/workflows/path-guard.yml' ; then
             echo "::error::Found hardcoded local paths. Replace with relative repo paths."
             exit 1
-          fi
-          echo "No hardcoded local paths found."
 
+::contentReference[oaicite:0]{index=0}
