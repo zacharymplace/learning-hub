@@ -1,36 +1,12 @@
 name: Path Guard
-
 on:
   pull_request:
   push:
     branches: [ main ]
-
 jobs:
-  scan:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Fail if hardcoded local paths are present
-        shell: bash
-        run: |
-          set -euo pipefail
-          echo "Scanning for hardcoded local Windows paths..."
-          # patterns to block
-          PATTERN='(C:/Users/Zacha/code/|C:\\\\Users\\\\Zacha\\\\code\\\\|Users/Zacha/code/)'
-          # excludes (binaries/outputs/caches)
-          EXCLUDES=(
-            --exclude-dir=.git --exclude-dir=.venv --exclude-dir=node_modules
-            --exclude-dir=.ruff_cache --exclude-dir=.pytest_cache
-            --exclude-dir=out
-            --exclude='*.png' --exclude='*.jpg' --exclude='*.jpeg' --exclude='*.gif'
-            --exclude='*.svg' --exclude='*.ico' --exclude='*.pdf' --exclude='*.zip'
-            --exclude='*.mp4' --exclude='*.mov' --exclude='*.parquet'
-          )
-          # grep returns 0 on match; we invert and fail with a nice message
-          if grep -RInE "$PATTERN" . "${EXCLUDES[@]}" ; then
-            echo "::error::Found hardcoded local paths. Replace with relative repo paths."
-            exit 1
-          else
-            echo "OK: no hardcoded local paths found."
-          fi
+  guard:
+    uses: zacharymplace/gha-templates/.github/workflows/path-guard.yml@main
+    with:
+      # extra_patterns: ""
+      # extra_excludes: |
+      #   --exclude-dir=docs/fixtures
