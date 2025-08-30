@@ -1,0 +1,27 @@
+name: Import Life Ops Patches
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"   # optional hourly
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch patch index from Life Ops Pages
+        shell: bash
+        run: |
+          mkdir -p docs/external/life-ops-scripts
+          curl -fsSL https://zacharymplace.github.io/life-ops-scripts/patch_index.md \
+            -o docs/external/life-ops-scripts/patch_index.md
+          curl -fsSL https://zacharymplace.github.io/life-ops-scripts/patch_index.json \
+            -o docs/external/life-ops-scripts/patch_index.json
+
+      - name: Commit updates
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: import patch index from life-ops-scripts"
+          file_pattern: docs/external/life-ops-scripts/*
